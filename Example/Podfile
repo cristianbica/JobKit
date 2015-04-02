@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'JobKit', :exclusive => true do
+  pod "JobKit", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "JobKit", :path => "../"
+
+  pod 'Specta'
+  pod 'Expecta'
+end
