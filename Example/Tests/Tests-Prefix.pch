@@ -7,7 +7,7 @@
 #ifdef __OBJC__
 
   #define EXP_SHORTHAND
-  #import <Specta/Specta.h>
+  #import <OCMock/OCMock.h>
   #import <Expecta/Expecta.h>
 
 #endif

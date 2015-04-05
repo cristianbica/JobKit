@@ -1,0 +1,26 @@
+PODS:
+  - Expecta (0.3.2)
+  - JobKit (0.1.0):
+    - Realm
+  - OCMock (3.1.2)
+  - Realm (0.91.1):
+    - Realm/Headers (= 0.91.1)
+  - Realm/Headers (0.91.1)
+
+DEPENDENCIES:
+  - Expecta
+  - JobKit (from `../`)
+  - OCMock
+  - Realm/Headers
+
+EXTERNAL SOURCES:
+  JobKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Expecta: 8c507baf13211207b1e9d0a741480600e6b4ed15
+  JobKit: 32a0ecc367c2618978b97986c29444e724f77109
+  OCMock: a10ea9f0a6e921651f96f78b6faee95ebc813b92
+  Realm: b9c1fd9defa26aa7276ce938a8df52ec81f24528
+
+COCOAPODS: 0.36.3
