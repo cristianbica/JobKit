@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import <JobKit/JobKit.h>
-#import <JobKit/JKTestAdapter.h>
+#import <JobKit/JKMemoryAdapter.h>
 #import "JKTestJob.h"
 #import "JKTestClass.h"
 
@@ -30,7 +30,7 @@
 }
 
 - (void)setupManager {
-  [JobKit setupDefaultManagerWithStorageProvider:[JKTestAdapter class]];
+  [JobKit setupDefaultManagerWithStorageProvider:[JKMemoryAdapter class]];
   [JobKit defaultManager].tickInterval = .5;
   [JobKit start];
 }
