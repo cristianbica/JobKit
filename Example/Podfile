@@ -1,10 +1,12 @@
 source 'https://github.com/CocoaPods/Specs.git'
+#use_frameworks!
 
 target 'JobKit' do
   pod "JobKit", :path => "../"
 end
 
 target 'Tests' do
+  pod "JobKit/Headers", :path => "../"
   pod 'Realm/Headers'
   pod 'OCMock'
   pod 'Expecta'

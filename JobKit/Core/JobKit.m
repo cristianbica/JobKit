@@ -112,9 +112,11 @@ static JobKit *_defaultManager;
         return;
       }
       JKJob *job = [self.storage popJob];
-      [self.worker executeJob:job completion:^(BOOL success, NSException *exception) {
-        //TODO
-      }];
+      if (job) {
+        [self.worker executeJob:job completion:^(BOOL success, NSException *exception) {
+          //TODO
+        }];
+      }
     }
   });
 }

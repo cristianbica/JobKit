@@ -34,4 +34,10 @@ Pod::Spec.new do |s|
     ss.resources = 'JobKit/Adapters/CoreDataAdapter/*.{xcdatamodeld,xcdatamodel}'
     ss.source_files = 'JobKit/Adapters/CoreDataAdapter/*.{h,m}'
   end
+
+  s.subspec 'Headers' do |ss|
+    ss.source_files = 'JobKit/**/*.h'
+    ss.public_header_files = 'JobKit/**/*.h'
+  end
+
 end

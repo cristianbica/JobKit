@@ -3,10 +3,12 @@ PODS:
   - JobKit (0.1.0):
     - JobKit/Core (= 0.1.0)
     - JobKit/CoreDataAdapter (= 0.1.0)
+    - JobKit/Headers (= 0.1.0)
     - JobKit/MemoryAdapter (= 0.1.0)
     - JobKit/RealmAdapter (= 0.1.0)
   - JobKit/Core (0.1.0)
   - JobKit/CoreDataAdapter (0.1.0)
+  - JobKit/Headers (0.1.0)
   - JobKit/MemoryAdapter (0.1.0)
   - JobKit/RealmAdapter (0.1.0):
     - Realm
@@ -18,6 +20,7 @@ PODS:
 DEPENDENCIES:
   - Expecta
   - JobKit (from `../`)
+  - JobKit/Headers (from `../`)
   - OCMock
   - Realm/Headers
 
@@ -27,7 +30,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Expecta: 8c507baf13211207b1e9d0a741480600e6b4ed15
-  JobKit: b4adc9a4575581861a8a71360c904191045dc98f
+  JobKit: 60e36765e31546bf5962c53ac9e74c1346f40eae
   OCMock: a10ea9f0a6e921651f96f78b6faee95ebc813b92
   Realm: b9c1fd9defa26aa7276ce938a8df52ec81f24528
 

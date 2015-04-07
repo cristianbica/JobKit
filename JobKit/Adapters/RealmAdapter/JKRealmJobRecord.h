@@ -6,7 +6,7 @@
 //
 //
 
-#import "RLMObject.h"
+#import <Realm/RLMObject.h>
 #import "JKJob.h"
 
 @interface JKRealmJobRecord : RLMObject

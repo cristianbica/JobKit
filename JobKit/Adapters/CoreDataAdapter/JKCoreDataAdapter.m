@@ -9,6 +9,7 @@
 #import "JKCoreDataAdapter.h"
 #import <CoreData/CoreData.h>
 #import "JKCoreDataJobRecord.h"
+#import "JobKit.h"
 
 @interface JKCoreDataAdapter ()
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
@@ -45,6 +46,9 @@
 - (void)setupCoreData {
   //MoM
   NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"JobKit" withExtension:@"momd"];
+  if (!modelURL) {
+    modelURL = [[NSBundle bundleForClass:[JobKit class]] URLForResource:@"JobKit" withExtension:@"momd"];
+  }
   NSManagedObjectModel *mom = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
   //Persistent Store
   NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
@@ -84,14 +88,15 @@
   fetchRequest.fetchLimit = 1;
   NSArray *jobs = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
   if (jobs.count > 0) {
-    JKCoreDataJobRecord *job = [jobs firstObject];
+    JKCoreDataJobRecord *record = [jobs firstObject];
     [self.privateContext performBlockAndWait:^{
-      job.locked = @(YES);
-      job.lockedAt = [NSDate date];
+      record.locked = @(YES);
+      record.lockedAt = [NSDate date];
       [self.privateContext save:nil];
     }];
-    NSLog(@"CoreData Adapter: poping job %@ from record %@", job.job, job);
-    return job.job;
+    JKJob *job = record.job;
+    NSLog(@"CoreData Adapter: poping job %@ from record %@", job, record);
+    return job;
   } else {
     return nil;
   }

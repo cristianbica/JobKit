@@ -7,7 +7,10 @@
 //
 
 #import "JKViewController.h"
-
+#import <JobKit/JobKit.h>
+#import <JobKit/JKCoreDataAdapter.h>
+#import <JobKit/JKRealmAdapter.h>
+#import <JobKit/JKMemoryAdapter.h>
 @interface JKViewController ()
 
 @end
@@ -17,7 +20,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+  [JobKit setupDefaultManagerWithStorageProvider:[JKCoreDataAdapter class]];
+  [JobKit setupDefaultManagerWithStorageProvider:[JKRealmAdapter class]];
+  [JobKit setupDefaultManagerWithStorageProvider:[JKMemoryAdapter class]];
 	// Do any additional setup after loading the view, typically from a nib.
+  
 }
 
 - (void)didReceiveMemoryWarning
