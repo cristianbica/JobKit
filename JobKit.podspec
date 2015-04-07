@@ -14,25 +14,33 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  #s.source_files = 'Pod/Classes/Core/JobKit.h'
-  s.public_header_files = 'JobKit/**/*.h'
+  s.default_subspec = 'All'
+
+  s.subspec 'All' do |ss|
+    ss.source_files = 'JobKit/**/*.{h,m}'
+    ss.public_header_files = 'JobKit/**/*.h'
+    ss.resources = 'JobKit/Adapters/CoreDataAdapter/*.{xcdatamodeld,xcdatamodel}'
+    ss.dependency 'Realm'
+    ss.frameworks = 'CoreData'
+  end
 
   s.subspec 'Core' do |ss|
     ss.source_files = 'JobKit/{Core,Jobs,Worker}/*.{h,m}'
   end
 
-  s.subspec 'RealmAdapter' do |ss|
+  s.subspec 'Realm' do |ss|
     ss.source_files = 'JobKit/Adapters/RealmAdapter/*.{h,m}'
     ss.dependency 'Realm'
   end
 
-  s.subspec 'MemoryAdapter' do |ss|
+  s.subspec 'Memory' do |ss|
     ss.source_files = 'JobKit/Adapters/MemoryAdapter/*.{h,m}'
   end
 
-  s.subspec 'CoreDataAdapter' do |ss|
+  s.subspec 'CoreData' do |ss|
     ss.resources = 'JobKit/Adapters/CoreDataAdapter/*.{xcdatamodeld,xcdatamodel}'
     ss.source_files = 'JobKit/Adapters/CoreDataAdapter/*.{h,m}'
+    ss.frameworks = 'CoreData'
   end
 
   s.subspec 'Headers' do |ss|
