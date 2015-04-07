@@ -31,16 +31,19 @@ Pod::Spec.new do |s|
   s.subspec 'Realm' do |ss|
     ss.source_files = 'JobKit/Adapters/RealmAdapter/*.{h,m}'
     ss.dependency 'Realm'
+    ss.dependency 'JobKit/Core'
   end
 
   s.subspec 'Memory' do |ss|
     ss.source_files = 'JobKit/Adapters/MemoryAdapter/*.{h,m}'
+    ss.dependency 'JobKit/Core'
   end
 
   s.subspec 'CoreData' do |ss|
     ss.resources = 'JobKit/Adapters/CoreDataAdapter/*.{xcdatamodeld,xcdatamodel}'
     ss.source_files = 'JobKit/Adapters/CoreDataAdapter/*.{h,m}'
     ss.frameworks = 'CoreData'
+    ss.dependency 'JobKit/Core'
   end
 
   s.subspec 'Headers' do |ss|
