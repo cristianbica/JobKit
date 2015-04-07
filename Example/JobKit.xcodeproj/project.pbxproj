@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1DD4C38809C21102FC7A8C67 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF6A3714556D8D7E781B1710 /* libPods-Tests.a */; };
 		28B398FC1AD08BEE00585CCD /* JKJobKitWithRealmAdapterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B398FB1AD08BEE00585CCD /* JKJobKitWithRealmAdapterTest.m */; };
 		28EED9951ACDED8E00E607C8 /* JKJobKitWithTestAdapterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EED9941ACDED8E00E607C8 /* JKJobKitWithTestAdapterTest.m */; };
 		28EED9981ACE762D00E607C8 /* JKTestJob.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EED9971ACE762D00E607C8 /* JKTestJob.m */; };
 		28EED99B1ACE95B200E607C8 /* JKTestClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EED99A1ACE95B200E607C8 /* JKTestClass.m */; };
-		43445DDE71129C9427357D27 /* libPods-JobKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE9C32592479E35119203D6 /* libPods-JobKit.a */; };
+		28EF72A11AD3BDD40063CAF8 /* JKJobWithCoreDataAdapterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EF72A01AD3BDD40063CAF8 /* JKJobWithCoreDataAdapterTest.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -27,6 +26,8 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
+		6BA9FF057B5412C651DA568D /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E60CE35BF77AAC7D896AE4C /* libPods-Tests.a */; };
+		9A2BC4217DE02E0EB38EE0B2 /* libPods-JobKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 277154AA987D8F1CB2E245AD /* libPods-JobKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,15 +41,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0AE9C32592479E35119203D6 /* libPods-JobKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JobKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1932321912DDFEEF548CFE07 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		1A9165ABB42468DBC395F5CB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		277154AA987D8F1CB2E245AD /* libPods-JobKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JobKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B398FB1AD08BEE00585CCD /* JKJobKitWithRealmAdapterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKJobKitWithRealmAdapterTest.m; sourceTree = "<group>"; };
 		28EED9941ACDED8E00E607C8 /* JKJobKitWithTestAdapterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKJobKitWithTestAdapterTest.m; sourceTree = "<group>"; };
 		28EED9961ACE762D00E607C8 /* JKTestJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKTestJob.h; sourceTree = "<group>"; };
 		28EED9971ACE762D00E607C8 /* JKTestJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKTestJob.m; sourceTree = "<group>"; };
 		28EED9991ACE95B200E607C8 /* JKTestClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKTestClass.h; sourceTree = "<group>"; };
 		28EED99A1ACE95B200E607C8 /* JKTestClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKTestClass.m; sourceTree = "<group>"; };
+		28EF72A01AD3BDD40063CAF8 /* JKJobWithCoreDataAdapterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKJobWithCoreDataAdapterTest.m; sourceTree = "<group>"; };
 		48297F6566E2E9A9732BC76F /* Pods-JobKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JobKit/Pods-JobKit.debug.xcconfig"; sourceTree = "<group>"; };
 		5E313F1EC4D7CEB9909F3FE4 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* JobKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,7 +75,7 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		64ABD9A6054BD1ACCD25C5B9 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6A6C7D33A35E404CA645F46F /* JobKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JobKit.podspec; path = ../JobKit.podspec; sourceTree = "<group>"; };
-		DF6A3714556D8D7E781B1710 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E60CE35BF77AAC7D896AE4C /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9F3F9D889DD878C15F81852 /* Pods-JobKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-JobKit/Pods-JobKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,7 +87,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				43445DDE71129C9427357D27 /* libPods-JobKit.a in Frameworks */,
+				9A2BC4217DE02E0EB38EE0B2 /* libPods-JobKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +98,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				1DD4C38809C21102FC7A8C67 /* libPods-Tests.a in Frameworks */,
+				6BA9FF057B5412C651DA568D /* libPods-Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,8 +133,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				0AE9C32592479E35119203D6 /* libPods-JobKit.a */,
-				DF6A3714556D8D7E781B1710 /* libPods-Tests.a */,
+				277154AA987D8F1CB2E245AD /* libPods-JobKit.a */,
+				8E60CE35BF77AAC7D896AE4C /* libPods-Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -168,6 +170,7 @@
 			children = (
 				28EED9941ACDED8E00E607C8 /* JKJobKitWithTestAdapterTest.m */,
 				28B398FB1AD08BEE00585CCD /* JKJobKitWithRealmAdapterTest.m */,
+				28EF72A01AD3BDD40063CAF8 /* JKJobWithCoreDataAdapterTest.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 				28EED9961ACE762D00E607C8 /* JKTestJob.h */,
 				28EED9971ACE762D00E607C8 /* JKTestJob.m */,
@@ -384,6 +387,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28EF72A11AD3BDD40063CAF8 /* JKJobWithCoreDataAdapterTest.m in Sources */,
 				28EED9981ACE762D00E607C8 /* JKTestJob.m in Sources */,
 				28EED9951ACDED8E00E607C8 /* JKJobKitWithTestAdapterTest.m in Sources */,
 				28EED99B1ACE95B200E607C8 /* JKTestClass.m in Sources */,

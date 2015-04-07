@@ -29,4 +29,9 @@ Pod::Spec.new do |s|
   s.subspec 'MemoryAdapter' do |ss|
     ss.source_files = 'JobKit/Adapters/MemoryAdapter/*.{h,m}'
   end
+
+  s.subspec 'CoreDataAdapter' do |ss|
+    ss.resources = 'JobKit/Adapters/CoreDataAdapter/*.{xcdatamodeld,xcdatamodel}'
+    ss.source_files = 'JobKit/Adapters/CoreDataAdapter/*.{h,m}'
+  end
 end

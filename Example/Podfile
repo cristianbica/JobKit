@@ -5,7 +5,6 @@ target 'JobKit' do
 end
 
 target 'Tests' do
-  #pod "JobKit", :path => "../"
   pod 'Realm/Headers'
   pod 'OCMock'
   pod 'Expecta'

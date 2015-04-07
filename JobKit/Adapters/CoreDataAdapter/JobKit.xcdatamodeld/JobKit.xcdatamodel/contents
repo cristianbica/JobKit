@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14C1514" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="JKCoreDataJobRecord" representedClassName="JKCoreDataJobRecord" syncable="YES">
+        <attribute name="enqueuedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="guid" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="jobData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="jobIdentifier" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="locked" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="lockedAt" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="JKCoreDataJobRecord" positionX="-63" positionY="-18" width="128" height="135"/>
+    </elements>
+</model>
