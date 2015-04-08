@@ -1,10 +1,10 @@
 PODS:
   - Expecta (0.3.2)
-  - JobKit (0.1.0):
-    - JobKit/All (= 0.1.0)
-  - JobKit/All (0.1.0):
+  - JobKit (0.9.0):
+    - JobKit/All (= 0.9.0)
+  - JobKit/All (0.9.0):
     - Realm
-  - JobKit/Headers (0.1.0)
+  - JobKit/Headers (0.9.0)
   - OCMock (3.1.2)
   - Realm (0.91.1):
     - Realm/Headers (= 0.91.1)
@@ -23,7 +23,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Expecta: 8c507baf13211207b1e9d0a741480600e6b4ed15
-  JobKit: 70069392e8cae0f8ed0795436b46e77b16906f18
+  JobKit: adb5f988d91a4c4d94134656ecb09129c98ec013
   OCMock: a10ea9f0a6e921651f96f78b6faee95ebc813b92
   Realm: b9c1fd9defa26aa7276ce938a8df52ec81f24528
 
