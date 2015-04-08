@@ -34,8 +34,7 @@
 + (instancetype)setupDefaultManagerWithStorageProvider:(Class)storageProviderClass;
 
 /**
- Returns the shared network reachability manager. If no default manager is set it will initialize one
- with 1 worker and using the Realm storage adapter.
+ Returns the shared jobs manager.
  */
 + (JobKit *)defaultManager;
 

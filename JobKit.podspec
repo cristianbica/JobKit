@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "JobKit"
-  s.version          = "0.1.0"
+  s.version          = "0.9.0"
   s.summary          = "Pesistent job queueing for iOS."
   s.description      = <<-DESC
                        Pesistent job queueing for iOS. Backed by Realm buy you can roll your own.

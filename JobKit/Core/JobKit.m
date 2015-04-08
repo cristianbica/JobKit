@@ -7,7 +7,6 @@
 //
 
 #import "JobKit.h"
-#import "JKRealmAdapter.h"
 #import "JKWorker.h"
 
 static JobKit *_defaultManager;
@@ -43,9 +42,6 @@ static JobKit *_defaultManager;
 }
 
 + (instancetype)defaultManager {
-  if (_defaultManager==nil) {
-    _defaultManager = [[self alloc] initWithStorageProvider:[JKRealmAdapter class]];
-  }
   return _defaultManager;
 }
 
