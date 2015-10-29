@@ -66,8 +66,12 @@ _Important: All arguments must conform to the `NSCoding` protocol._
 2 - Enqueue invocation of a class method for any object
 
 ```objective-c
+@interface SomeClass : NSObject
++ (void)aClassMethod;
++ (void)aClassMethodWithAnArgument:(id)arg1 andAnother:(id)arg2;
+@end
 [SomeClass jk_performLater:@selector(aClassMethod) arguments:nil]
-[SomeClass jk_performLater:@selector(aClassMethod) arguments:@["arg"]]
+[SomeClass jk_performLater:@selector(aClassMethodWithAnArgument:andAnother:) arguments:@["arg", @(2)]]
 ```
 _Important: All arguments must conform to the `NSCoding` protocol._
 
@@ -75,8 +79,12 @@ _Important: All arguments must conform to the `NSCoding` protocol._
 3 - Enqueue invocation of an instance method for any object instance
 
 ```objective-c
-[anObject jk_performLater:@selector(aClassMethod) arguments:nil]
-[anObject jk_performLater:@selector(aClassMethod) arguments:@["arg"]]
+@interface SomeClass : NSObject
+- (void)aClassMethod;
+- (void)aClassMethodWithAnArgument:(id)arg1 andAnother:(id)arg2;
+@end
+[[SomeClass new] jk_performLater:@selector(aClassMethod) arguments:nil]
+[[SomeClass new] jk_performLater:@selector(aClassMethodWithAnArgument:andAnother:) arguments:@["arg", @(2)]]
 ```
 _Important: The object and all arguments must conform to the `NSCoding` protocol._
 

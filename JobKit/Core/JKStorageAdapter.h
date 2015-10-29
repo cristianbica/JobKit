@@ -18,4 +18,8 @@ typedef void (^JKStorageAdapterNotificationBlock)();
 - (JKJob *)peek;
 - (NSArray *)peek:(NSUInteger)count;
 - (BOOL)hasJobs;
+- (BOOL)supportsNotifications;
+@optional
+- (id)addNotificationBlock:(JKStorageAdapterNotificationBlock)block;
+- (void)removeNotificationBlock:(id)token;
 @end

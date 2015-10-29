@@ -10,6 +10,7 @@
 #import <JKJob.h>
 
 @interface JKMemoryAdapter ()
+@property (nonatomic, strong) NSMutableDictionary *notificationListeners;
 @property (strong) NSMutableDictionary *store;
 @property (strong) NSMutableArray *storeIndex;
 @end
@@ -26,17 +27,26 @@
 - (void)setup {
   self.store = [NSMutableDictionary dictionary];
   self.storeIndex = [NSMutableArray array];
+  self.notificationListeners = [NSMutableDictionary dictionary];
 }
 
 - (void)dealloc {
   [self.store removeAllObjects];
   [self.storeIndex removeAllObjects];
+  [self.notificationListeners removeAllObjects];
+}
+
+- (void)notifyListeners {
+  [self.notificationListeners enumerateKeysAndObjectsUsingBlock:^(id key, JKStorageAdapterNotificationBlock block, BOOL *stop) {
+    block();
+  }];
 }
 
 - (id)pushJob:(JKJob *)job {
   NSString *guid = [NSUUID UUID].UUIDString;
   [self.storeIndex addObject:guid];
   [self.store setObject:[NSKeyedArchiver archivedDataWithRootObject:job] forKey:guid];
+  [self performSelector:@selector(notifyListeners) withObject:nil afterDelay:0.01];
   return guid;
 }
 
@@ -46,7 +56,7 @@
   if (guid) {
     [self.storeIndex removeObjectAtIndex:0];
     JKJob *job = [NSKeyedUnarchiver unarchiveObjectWithData:[self.store objectForKey:guid]];
-    NSLog(@"Test Adapter: poping job %@ with key %@", job, guid);
+    NSLog(@"Memory Adapter: poping job %@ with key %@", job, guid);
     [self.store removeObjectForKey:guid];
     return job;
   }
@@ -76,6 +86,20 @@
 
 - (BOOL)hasJobs {
   return [self.storeIndex count]>0;
+}
+
+- (BOOL)supportsNotifications {
+  return YES;
+}
+
+- (id)addNotificationBlock:(JKStorageAdapterNotificationBlock)block {
+  NSString *guid = [NSUUID UUID].UUIDString;
+  self.notificationListeners[guid] = block;
+  return guid;
+}
+
+- (void)removeNotificationBlock:(id)token {
+  [self.notificationListeners removeObjectForKey:token];
 }
 
 @end

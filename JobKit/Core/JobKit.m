@@ -72,15 +72,28 @@ static JobKit *_defaultManager;
 - (void)start {
   if (self.paused) {
     self.paused = NO;
-    //[self tick];
-    dispatch_resume(self.timer);
+    [self startTicking];
   }
 }
 
 - (void)stop {
   if (!self.paused) {
-    dispatch_suspend(self.timer);
+    [self stopTicking];
     self.paused = YES;
+  }
+}
+
+- (void)startTicking {
+  if (self.tickInterval>0) {
+    dispatch_resume(self.timer);
+  } else {
+    [self tick];
+  }
+}
+
+- (void)stopTicking {
+  if (self.tickInterval>0) {
+    dispatch_suspend(self.timer);
   }
 }
 
@@ -88,11 +101,17 @@ static JobKit *_defaultManager;
   _tickInterval = tickInterval;
   if (self.timer) {
     dispatch_source_cancel(self.timer);
+    self.timer = nil;
     //dispatch_release(self.timer);
   }
-  self.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, self.queue);
-  dispatch_source_set_timer(self.timer, DISPATCH_TIME_NOW, self.tickInterval*NSEC_PER_SEC, 0);
-  dispatch_source_set_event_handler(self.timer, ^{ [self tick]; });
+  if (self.tickInterval>0) {
+    self.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, self.queue);
+    dispatch_source_set_timer(self.timer, DISPATCH_TIME_NOW, self.tickInterval*NSEC_PER_SEC, 0);
+    dispatch_source_set_event_handler(self.timer, ^{ [self tick]; });
+    if (!self.paused) {
+      dispatch_resume(self.timer);
+    }
+  }
 }
 
 - (void)stopAndCancelCurrentJobs {
@@ -101,6 +120,7 @@ static JobKit *_defaultManager;
 }
 
 - (void)tick {
+  if (self.paused) return;
   NSLog(@"Ticking");
   dispatch_async(self.queue, ^{
     @synchronized(self) {
@@ -110,7 +130,7 @@ static JobKit *_defaultManager;
       JKJob *job = [self.storage popJob];
       if (job) {
         [self.worker executeJob:job completion:^(BOOL success, NSException *exception) {
-          //TODO
+          [self tick];
         }];
       }
     }

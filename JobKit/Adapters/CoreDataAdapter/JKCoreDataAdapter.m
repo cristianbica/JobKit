@@ -12,6 +12,7 @@
 #import "JobKit.h"
 
 @interface JKCoreDataAdapter ()
+@property (nonatomic, strong) NSMutableDictionary *notificationListeners;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NSManagedObjectContext *privateContext;
 @property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
@@ -29,15 +30,27 @@
 
 - (void)setup {
   [self setupCoreData];
+  self.notificationListeners = [NSMutableDictionary dictionary];
 }
 
 - (void)cleanUp {
   [self.privateContext performBlockAndWait:^{
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"JKCoreDataJobRecord"];
+    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"enqueuedAt" ascending:YES]];
     NSArray *jobs = [self.privateContext executeFetchRequest:fetchRequest error:nil];
     [jobs enumerateObjectsUsingBlock:^(JKCoreDataJobRecord *obj, NSUInteger idx, BOOL *stop) {
       [self.privateContext deleteObject:obj];
     }];
+  }];
+}
+
+- (void)dealloc {
+  [self.notificationListeners removeAllObjects];
+}
+
+- (void)notifyListeners {
+  [self.notificationListeners enumerateKeysAndObjectsUsingBlock:^(id key, JKStorageAdapterNotificationBlock block, BOOL *stop) {
+    block();
   }];
 }
 
@@ -68,12 +81,24 @@
   self.privateContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
   self.privateContext.persistentStoreCoordinator = coordinator;
   self.managedObjectContext.parentContext = self.privateContext;
+  //Observe jobs
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(didChangeObjects:)
+                                               name:NSManagedObjectContextObjectsDidChangeNotification
+                                             object:self.managedObjectContext];
+}
+
+- (void)didChangeObjects:(NSNotification *)notification {
+  NSSet *insertedObjects = [[notification userInfo] objectForKey:NSInsertedObjectsKey];
+  [insertedObjects enumerateObjectsUsingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
+    if ([obj isKindOfClass:[JKCoreDataJobRecord class]]) {
+      [self notifyListeners];
+      return;
+    }
+  }];
 }
 
 #pragma mark - Adapter Protocol Methods
-
-- (void)dealloc {
-}
 
 - (id)pushJob:(JKJob *)job {
   JKCoreDataJobRecord *record = [JKCoreDataJobRecord createRecordFromJob:job inContext:self.privateContext];
@@ -133,5 +158,18 @@
   return [self.managedObjectContext countForFetchRequest:fetchRequest error:nil]>0;
 }
 
+- (BOOL)supportsNotifications {
+  return YES;
+}
+
+- (id)addNotificationBlock:(JKStorageAdapterNotificationBlock)block {
+  NSString *guid = [NSUUID UUID].UUIDString;
+  self.notificationListeners[guid] = block;
+  return guid;
+}
+
+- (void)removeNotificationBlock:(id)token {
+  [self.notificationListeners removeObjectForKey:token];
+}
 
 @end

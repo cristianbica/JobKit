@@ -13,6 +13,7 @@
 		28EED9981ACE762D00E607C8 /* JKTestJob.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EED9971ACE762D00E607C8 /* JKTestJob.m */; };
 		28EED99B1ACE95B200E607C8 /* JKTestClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EED99A1ACE95B200E607C8 /* JKTestClass.m */; };
 		28EF72A11AD3BDD40063CAF8 /* JKJobWithCoreDataAdapterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EF72A01AD3BDD40063CAF8 /* JKJobWithCoreDataAdapterTest.m */; };
+		28EF72A91AD65D170063CAF8 /* JKArgumentsSerializationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EF72A81AD65D170063CAF8 /* JKArgumentsSerializationTest.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -50,6 +51,7 @@
 		28EED9991ACE95B200E607C8 /* JKTestClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKTestClass.h; sourceTree = "<group>"; };
 		28EED99A1ACE95B200E607C8 /* JKTestClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKTestClass.m; sourceTree = "<group>"; };
 		28EF72A01AD3BDD40063CAF8 /* JKJobWithCoreDataAdapterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKJobWithCoreDataAdapterTest.m; sourceTree = "<group>"; };
+		28EF72A81AD65D170063CAF8 /* JKArgumentsSerializationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKArgumentsSerializationTest.m; sourceTree = "<group>"; };
 		3D1CF9ADC7AD0CFDD6F15997 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48297F6566E2E9A9732BC76F /* Pods-JobKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JobKit/Pods-JobKit.debug.xcconfig"; sourceTree = "<group>"; };
 		5E313F1EC4D7CEB9909F3FE4 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -168,14 +170,11 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				28EF72A81AD65D170063CAF8 /* JKArgumentsSerializationTest.m */,
 				28EED9941ACDED8E00E607C8 /* JKJobKitWithTestAdapterTest.m */,
 				28B398FB1AD08BEE00585CCD /* JKJobKitWithRealmAdapterTest.m */,
 				28EF72A01AD3BDD40063CAF8 /* JKJobWithCoreDataAdapterTest.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
-				28EED9961ACE762D00E607C8 /* JKTestJob.h */,
-				28EED9971ACE762D00E607C8 /* JKTestJob.m */,
-				28EED9991ACE95B200E607C8 /* JKTestClass.h */,
-				28EED99A1ACE95B200E607C8 /* JKTestClass.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -183,6 +182,10 @@
 		6003F5B6195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				28EED9961ACE762D00E607C8 /* JKTestJob.h */,
+				28EED9971ACE762D00E607C8 /* JKTestJob.m */,
+				28EED9991ACE95B200E607C8 /* JKTestClass.h */,
+				28EED99A1ACE95B200E607C8 /* JKTestClass.m */,
 				6003F5B7195388D20070C39A /* Tests-Info.plist */,
 				6003F5B8195388D20070C39A /* InfoPlist.strings */,
 				606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */,
@@ -223,6 +226,7 @@
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				A14810C39C797F4686FB4854 /* Copy Pods Resources */,
+				D8821F7C825B8521D3CB0EAA /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -242,6 +246,7 @@
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
 				CAA4FAE71C26B93F9E390A8E /* Copy Pods Resources */,
+				C5BA76E4288BE649B4E0F595 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -260,7 +265,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = JK;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Cristian Bica";
 				TargetAttributes = {
 					6003F5AD195388D20070C39A = {
@@ -340,6 +345,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JobKit/Pods-JobKit-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C5BA76E4288BE649B4E0F595 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests/Pods-Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CAA4FAE71C26B93F9E390A8E /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -353,6 +373,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests/Pods-Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D8821F7C825B8521D3CB0EAA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JobKit/Pods-JobKit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E44F65057BF67F0FBC1A8432 /* Check Pods Manifest.lock */ = {
@@ -387,6 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28EF72A91AD65D170063CAF8 /* JKArgumentsSerializationTest.m in Sources */,
 				28EF72A11AD3BDD40063CAF8 /* JKJobWithCoreDataAdapterTest.m in Sources */,
 				28EED9981ACE762D00E607C8 /* JKTestJob.m in Sources */,
 				28EED9951ACDED8E00E607C8 /* JKJobKitWithTestAdapterTest.m in Sources */,
@@ -459,6 +495,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -473,7 +510,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -506,7 +543,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -522,6 +559,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JobKit/JobKit-Prefix.pch";
 				INFOPLIST_FILE = "JobKit/JobKit-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -536,6 +574,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JobKit/JobKit-Prefix.pch";
 				INFOPLIST_FILE = "JobKit/JobKit-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -558,6 +597,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -577,6 +617,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

@@ -11,25 +11,23 @@
 @implementation JKInvocationJob
 
 + (instancetype)jobWithClass:(Class)klass selector:(SEL)selector arguments:(NSArray *)arguments {
-  JKInvocationJob *job = [[self alloc] init];
-  job.arguments = @[
+  NSArray *args = @[
                     @"class",
                     NSStringFromClass(klass),
                     NSStringFromSelector(selector),
                     arguments?:@[]
                     ];
-  return job;
+  return (id)[self performLater:args];
 }
 
 + (instancetype)jobWithObject:(id)object selector:(SEL)selector arguments:(NSArray *)arguments {
-  JKInvocationJob *job = [[self alloc] init];
-  job.arguments = @[
+  NSArray *args = @[
                     @"object",
                     [NSKeyedArchiver archivedDataWithRootObject:object],
                     NSStringFromSelector(selector),
                     arguments?:@[]
                     ];
-  return job;
+  return (id)[self performLater:args];
 }
 
 - (void)perform {

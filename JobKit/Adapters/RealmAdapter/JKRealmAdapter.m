@@ -87,4 +87,8 @@
            sortedResultsUsingProperty:@"enqueuedAt" ascending:YES] count]>0;
 }
 
+- (BOOL)supportsNotifications {
+  return NO;
+}
+
 @end

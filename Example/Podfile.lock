@@ -1,30 +1,31 @@
 PODS:
-  - Expecta (0.3.2)
-  - JobKit (0.9.0):
-    - JobKit/All (= 0.9.0)
-  - JobKit/All (0.9.0):
+  - Expecta (1.0.3)
+  - JobKit/All (0.9.1):
     - Realm
-  - JobKit/Headers (0.9.0)
-  - OCMock (3.1.2)
-  - Realm (0.91.1):
-    - Realm/Headers (= 0.91.1)
-  - Realm/Headers (0.91.1)
+  - JobKit/Headers (0.9.1)
+  - OCMock (3.2)
+  - Realm (0.96.2):
+    - Realm/Headers (= 0.96.2)
+  - Realm/Headers (0.96.2)
+  - Specta (1.0.4)
 
 DEPENDENCIES:
   - Expecta
-  - JobKit (from `../`)
+  - JobKit/All (from `../`)
   - JobKit/Headers (from `../`)
   - OCMock
   - Realm/Headers
+  - Specta
 
 EXTERNAL SOURCES:
   JobKit:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Expecta: 8c507baf13211207b1e9d0a741480600e6b4ed15
-  JobKit: adb5f988d91a4c4d94134656ecb09129c98ec013
-  OCMock: a10ea9f0a6e921651f96f78b6faee95ebc813b92
-  Realm: b9c1fd9defa26aa7276ce938a8df52ec81f24528
+  Expecta: 9d1bff6c8b0eeee73a166a2ee898892478927a15
+  JobKit: e6e637ec8c89253f6743fd1b4411db9396c0aed9
+  OCMock: 28def049ef47f996b515a8eeea958be7ccab2dbb
+  Realm: 3ce8448151c571e90b85002d984d7f93f54fc8a3
+  Specta: 69bb134672aae190a1379ff91df07dad8dd1f869
 
-COCOAPODS: 0.36.3
+COCOAPODS: 0.39.0
