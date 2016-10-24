@@ -37,7 +37,7 @@
 - (RLMRealm *)createRealm {
   NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
   path = [path stringByAppendingString:@"/jobkit.realm"];
-  return [RLMRealm realmWithPath:path];
+  return [RLMRealm realmWithURL:[NSURL URLWithString:path]];
 }
 
 - (void)dealloc {
